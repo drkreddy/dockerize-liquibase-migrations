@@ -1,1 +1,34 @@
 # dockerize-liquibase-migrations
+java -jar liquibase-3.8.0.jar \
+--classpath=~/play/dockr/postgresql-42.2.8.jar \
+--changeLogFile=~/play/dockr/change.xml \
+--url=jdbc:postgresql://127.0.0.1:5432/postgres \
+--username=postgres  \
+--password=mysecretpassword \
+validate
+
+
+liquibase.integration.commandline.Main
+
+
+
+add snakeyaml.jar
+./liquibase-3.8.0-bin/liquibase \
+--classpath=./postgresql-42.2.8.jar \
+--changeLogFile=./changea.yaml \
+--url=jdbc:postgresql://127.0.0.1:5432/postgres \
+--username=postgres  \
+--password=mysecretpassword \
+ validate
+
+
+
+
+  docker run -it --env OS_STRING=jdbc:postgresql://172.17.0.2:5432/postgres alphinejava
+
+
+  docker run -it --env OS_STRING=jdbc:postgresql://172.17.0.2:5432/postgres alphinejava
+
+  docker exec -it some-postgres psql  -U postgres
+
+  docker run --name some-postgres --hostname payments-db  -e POSTGRES_PASSWORD=mysecretpassword -d postgres
